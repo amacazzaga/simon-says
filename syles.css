@@ -19,10 +19,20 @@ button {
   width: 95px;
   border-radius: 12px;
 }
-.box_one {
+.box_one_a {
+  display: block;
   border: solid;
   border-radius: 12px;
   background-color: red;
+  border-color: white;
+  height: 200px;
+  width: 200px;
+}
+.box_one_b {
+  display: none;
+  border: solid;
+  border-radius: 12px;
+  background-color: rgb(243, 96, 96);
   border-color: white;
   height: 200px;
   width: 200px;
