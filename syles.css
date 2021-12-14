@@ -6,36 +6,50 @@ header {
 .container {
   justify-content: center;
   display: flex;
-  padding: 100px;
+  padding: 80px;
 }
 .div_button {
   display: flex;
   justify-content: center;
 }
 button {
-  height: 45px;
+  font-size: larger;
+  font-weight: bolder;
+  height: 65px;
   width: 95px;
-  border: solid;
+  border-radius: 12px;
 }
 .box_one {
   border: solid;
-  height: 150px;
-  width: 150px;
+  border-radius: 12px;
+  background-color: red;
+  border-color: white;
+  height: 200px;
+  width: 200px;
 }
 .box_two {
   border: solid;
-  height: 150px;
-  width: 150px;
+  border-radius: 12px;
+  background-color: rgb(202, 202, 45);
+  border-color: white;
+  height: 200px;
+  width: 200px;
 }
 .box_three {
   border: solid;
-  height: 150px;
-  width: 150px;
+  border-color: white;
+  border-radius: 12px;
+  background-color: darkblue;
+  height: 200px;
+  width: 200px;
 }
 .box_four {
   border: solid;
-  height: 150px;
-  width: 150px;
+  border-radius: 12px;
+  background-color: green;
+  border-color: white;
+  height: 200px;
+  width: 200px;
 }
 
 footer {
