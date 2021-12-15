@@ -6,6 +6,7 @@ const boxTresA = document.getElementById("box-3-a");
 const boxTresB = document.getElementById("box-3-b");
 const boxCuatroA = document.getElementById("box-4-a");
 const boxCuatroB = document.getElementById("box-4-b");
+const startButton = document.getElementById("button_start");
 
 //BOX 1//
 boxUnoA.addEventListener("click", () => {
@@ -46,4 +47,13 @@ boxCuatroA.addEventListener("click", () => {
     boxCuatroA.style.display = "block";
     boxCuatroB.style.display = "none";
   }
+});
+//START//
+
+console.dir(boxUnoA);
+const arrOfBoxes = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
+startButton.addEventListener("click", () => {
+  const randomNum = Math.floor(Math.random() * arrOfBoxes.length);
+  const turnSimon = arrOfBoxes[randomNum];
+  turnSimon.click();
 });
