@@ -7,7 +7,9 @@ const boxTresB = document.getElementById("box-3-b");
 const boxCuatroA = document.getElementById("box-4-a");
 const boxCuatroB = document.getElementById("box-4-b");
 const startButton = document.getElementById("button_start");
-
+const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
+const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
+userArr = [];
 //BOX 1//
 boxUnoA.addEventListener("click", () => {
   boxUnoA.style.display = "none";
@@ -16,6 +18,8 @@ boxUnoA.addEventListener("click", () => {
   function myDisplay() {
     boxUnoA.style.display = "block";
     boxUnoB.style.display = "none";
+    userArr.push(boxUnoA.id);
+    console.log(userArr);
   }
 });
 // BOX 2//
@@ -26,6 +30,8 @@ boxDosA.addEventListener("click", () => {
   function myDisplay() {
     boxDosA.style.display = "block";
     boxDosB.style.display = "none";
+    userArr.push(boxDosA.id);
+    console.log(userArr);
   }
 });
 //BOX 3//
@@ -36,9 +42,12 @@ boxTresA.addEventListener("click", () => {
   function myDisplay() {
     boxTresA.style.display = "block";
     boxTresB.style.display = "none";
+    userArr.push(boxTresA.id);
+    console.log(userArr);
   }
 });
-//BOX 4//
+
+//BOX 4// //turnos///maquina o user// otra let q indique el largo de la secuen del user
 boxCuatroA.addEventListener("click", () => {
   boxCuatroA.style.display = "none";
   boxCuatroB.style.display = "block";
@@ -46,14 +55,23 @@ boxCuatroA.addEventListener("click", () => {
   function myDisplay() {
     boxCuatroA.style.display = "block";
     boxCuatroB.style.display = "none";
+    userArr.push(boxCuatroA.id);
+    console.log(userArr);
   }
 });
-//START//
 
-console.dir(boxUnoA);
-const arrOfBoxes = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
+//START//
+simonArr = [];
 startButton.addEventListener("click", () => {
-  const randomNum = Math.floor(Math.random() * arrOfBoxes.length);
-  const turnSimon = arrOfBoxes[randomNum];
-  turnSimon.click();
+  const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
+  const turnSimon = arrOfBoxesB[randomNum];
+  console.log(turnSimon);
+  turnSimon.style.display = "block";
+  const sliced = turnSimon.id.slice(0, 6);
+  const concat = sliced.concat("a");
+  const slicedConcat = arrOfBoxesA.filter((x) => {
+    return x.id === concat;
+  });
+  slicedConcat[0].style.display = "none";
+  console.log(slicedConcat);
 });
