@@ -65,13 +65,19 @@ simonArr = [];
 startButton.addEventListener("click", () => {
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
-  console.log(turnSimon);
-  turnSimon.style.display = "block";
+  //console.log(turnSimon);
+  turnSimon.style.display = "block"; // muestro clase b
   const sliced = turnSimon.id.slice(0, 6);
   const concat = sliced.concat("a");
   const slicedConcat = arrOfBoxesA.filter((x) => {
     return x.id === concat;
   });
-  slicedConcat[0].style.display = "none";
+  slicedConcat[0].style.display = "none"; // oculto clase a seleccionada
+  const myTimeout = setTimeout(myDisplay, 1270);
+  function myDisplay() {
+    turnSimon.style.display = "none";
+    slicedConcat[0].style.display = "block";
+  }
+
   console.log(slicedConcat);
 });
