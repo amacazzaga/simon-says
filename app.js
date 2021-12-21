@@ -78,6 +78,6 @@ startButton.addEventListener("click", () => {
     turnSimon.style.display = "none";
     slicedConcat[0].style.display = "block";
   }
-
-  console.log(slicedConcat);
+  simonArr.push(slicedConcat);
+  console.log(simonArr);
 });
