@@ -7,11 +7,16 @@ const boxTresB = document.getElementById("box-3-b");
 const boxCuatroA = document.getElementById("box-4-a");
 const boxCuatroB = document.getElementById("box-4-b");
 const startButton = document.getElementById("button_start");
+let turn = "pc";
 const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
 userArr = [];
 //BOX 1//
 boxUnoA.addEventListener("click", () => {
+  if (turn === "pc") {
+    //respeta el turno!
+    return;
+  }
   boxUnoA.style.display = "none";
   boxUnoB.style.display = "block";
   const myTimeout = setTimeout(myDisplay, 1270);
@@ -19,11 +24,17 @@ boxUnoA.addEventListener("click", () => {
     boxUnoA.style.display = "block";
     boxUnoB.style.display = "none";
     userArr.push(boxUnoA.id);
+    turn = "pc";
     console.log(userArr);
+    console.log(turn);
   }
 });
 // BOX 2//
 boxDosA.addEventListener("click", () => {
+  if (turn === "pc") {
+    //respeta el turno!
+    return;
+  }
   boxDosA.style.display = "none";
   boxDosB.style.display = "block";
   const myTimeout = setTimeout(myDisplay, 1270);
@@ -31,11 +42,17 @@ boxDosA.addEventListener("click", () => {
     boxDosA.style.display = "block";
     boxDosB.style.display = "none";
     userArr.push(boxDosA.id);
+    turn = "pc";
     console.log(userArr);
+    console.log(turn);
   }
 });
 //BOX 3//
 boxTresA.addEventListener("click", () => {
+  if (turn === "pc") {
+    //respeta el turno!
+    return;
+  }
   boxTresA.style.display = "none";
   boxTresB.style.display = "block";
   const myTimeout = setTimeout(myDisplay, 1270);
@@ -43,12 +60,18 @@ boxTresA.addEventListener("click", () => {
     boxTresA.style.display = "block";
     boxTresB.style.display = "none";
     userArr.push(boxTresA.id);
+    turn = "pc";
     console.log(userArr);
+    console.log(turn);
   }
 });
 
 //BOX 4// //turnos///maquina o user// otra let q indique el largo de la secuen del user
 boxCuatroA.addEventListener("click", () => {
+  if (turn === "pc") {
+    //respeta el turno!
+    return;
+  }
   boxCuatroA.style.display = "none";
   boxCuatroB.style.display = "block";
   const myTimeout = setTimeout(myDisplay, 1270);
@@ -56,13 +79,16 @@ boxCuatroA.addEventListener("click", () => {
     boxCuatroA.style.display = "block";
     boxCuatroB.style.display = "none";
     userArr.push(boxCuatroA.id);
+    turn = "pc";
     console.log(userArr);
+    console.log(turn);
   }
 });
-
+// turnos, y comparar //
 //START//
 simonArr = [];
-startButton.addEventListener("click", () => {
+startButton.addEventListener("click", () => generateTurn(1));
+function generateTurn(turnLength) {
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
   //console.log(turnSimon);
@@ -78,6 +104,8 @@ startButton.addEventListener("click", () => {
     turnSimon.style.display = "none";
     slicedConcat[0].style.display = "block";
   }
-  simonArr.push(slicedConcat);
+  simonArr.push(slicedConcat[0].id);
   console.log(simonArr);
-});
+  turn = "user";
+  console.log(turn);
+}
