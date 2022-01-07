@@ -11,6 +11,7 @@ let turn = "pc";
 const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
 userArr = [];
+simonArr = [];
 //BOX 1//
 boxUnoA.addEventListener("click", () => {
   if (turn === "pc") {
@@ -25,8 +26,11 @@ boxUnoA.addEventListener("click", () => {
     boxUnoB.style.display = "none";
     userArr.push(boxUnoA.id);
     turn = "pc";
-    console.log(userArr);
-    console.log(turn);
+    // console.log(userArr);
+    // console.log(turn);
+    if (turn === "pc") {
+      generateTurn();
+    }
   }
 });
 // BOX 2//
@@ -43,8 +47,11 @@ boxDosA.addEventListener("click", () => {
     boxDosB.style.display = "none";
     userArr.push(boxDosA.id);
     turn = "pc";
-    console.log(userArr);
-    console.log(turn);
+    if (turn === "pc") {
+      generateTurn();
+    }
+    // console.log(userArr);
+    //  console.log(turn);
   }
 });
 //BOX 3//
@@ -61,8 +68,11 @@ boxTresA.addEventListener("click", () => {
     boxTresB.style.display = "none";
     userArr.push(boxTresA.id);
     turn = "pc";
-    console.log(userArr);
-    console.log(turn);
+    // console.log(userArr);
+    // console.log(turn);
+    if (turn === "pc") {
+      generateTurn();
+    }
   }
 });
 
@@ -80,14 +90,27 @@ boxCuatroA.addEventListener("click", () => {
     boxCuatroB.style.display = "none";
     userArr.push(boxCuatroA.id);
     turn = "pc";
-    console.log(userArr);
-    console.log(turn);
+    if (turn === "pc") {
+      generateTurn();
+    }
+
+    /* necesitas saber si la primera posicion de userArr coincide con la primera de
+    simonArr, No guardar un historial de userArr. Si coincide, borras y seguis comparando
+    con el siguiente click*/
+    // console.log(turn);
+    // generateTurn(2); //por ej, pero eso va ahi, esta bien
   }
 });
 // turnos, y comparar //
+// contador de la secuenaci actual//
+// generatTurn, toma turn lengght q es el largo de la secuen//
+// el user va consuminedo el array de simon y quita del array lo q consume, pero no lo
+//modifica a simonArr, solo compara la primera posicion de ambos
+//y al final llama a generateTurn, una secuencia mas larga//
 //START//
-simonArr = [];
+
 startButton.addEventListener("click", () => generateTurn(1));
+
 function generateTurn(turnLength) {
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
@@ -106,6 +129,8 @@ function generateTurn(turnLength) {
   }
   simonArr.push(slicedConcat[0].id);
   console.log(simonArr);
+  turnLength = simonArr.length;
+  // console.log(turnLength);
   turn = "user";
-  console.log(turn);
+  // console.log(turn);
 }
