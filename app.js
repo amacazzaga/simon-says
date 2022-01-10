@@ -91,7 +91,7 @@ boxCuatroA.addEventListener("click", () => {
     userArr.push(boxCuatroA.id);
     turn = "pc";
     if (turn === "pc") {
-      generateTurn();
+      generateTurn(); // ser una copia del arr
     }
 
     /* necesitas saber si la primera posicion de userArr coincide con la primera de
@@ -109,9 +109,9 @@ boxCuatroA.addEventListener("click", () => {
 //y al final llama a generateTurn, una secuencia mas larga//
 //START//
 
-startButton.addEventListener("click", () => generateTurn(1));
+startButton.addEventListener("click", () => generateTurn());
 
-function generateTurn(turnLength) {
+function generateTurn() {
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
   //console.log(turnSimon);
@@ -129,8 +129,7 @@ function generateTurn(turnLength) {
   }
   simonArr.push(slicedConcat[0].id);
   console.log(simonArr);
-  turnLength = simonArr.length;
-  // console.log(turnLength);
+
   turn = "user";
   // console.log(turn);
 }
