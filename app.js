@@ -12,6 +12,7 @@ const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
 userArr = [];
 simonArr = [];
+simonMoves = [];
 //BOX 1//
 boxUnoA.addEventListener("click", () => {
   if (turn === "pc") {
@@ -91,6 +92,12 @@ boxCuatroA.addEventListener("click", () => {
     userArr.push(boxCuatroA.id);
     turn = "pc";
     if (turn === "pc") {
+      const simonPlays = simonArr.forEach((el) => {
+        const slicedSimonPlay = el.slice(0, 6);
+        const concatedSimonPlay = slicedSimonPlay.concat("b");
+        return simonMoves.push(concatedSimonPlay);
+      });
+      console.log(simonMoves);
       generateTurn(); // ser una copia del arr
     }
 
@@ -128,7 +135,7 @@ function generateTurn() {
     slicedConcat[0].style.display = "block";
   }
   simonArr.push(slicedConcat[0].id);
-  console.log(simonArr);
+  //console.log(simonArr);
 
   turn = "user";
   // console.log(turn);
