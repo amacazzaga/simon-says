@@ -92,12 +92,10 @@ boxCuatroA.addEventListener("click", () => {
     userArr.push(boxCuatroA.id);
     turn = "pc";
     if (turn === "pc") {
-      const simonPlays = simonArr.forEach((el) => {
-        const slicedSimonPlay = el.slice(0, 6);
-        const concatedSimonPlay = slicedSimonPlay.concat("b");
-        return simonMoves.push(concatedSimonPlay);
+      const simonPlays = simonArr.map((el) => {
+        return el.slice(0, 6).concat("b");
       });
-      console.log(simonMoves);
+      console.log(simonPlays);
       generateTurn(); // ser una copia del arr
     }
 
@@ -135,7 +133,7 @@ function generateTurn() {
     slicedConcat[0].style.display = "block";
   }
   simonArr.push(slicedConcat[0].id);
-  //console.log(simonArr);
+  console.log(simonArr);
 
   turn = "user";
   // console.log(turn);
