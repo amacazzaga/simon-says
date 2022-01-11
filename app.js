@@ -12,7 +12,7 @@ const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
 userArr = [];
 simonArr = [];
-simonMoves = [];
+simonMoves = []; // not using
 //BOX 1//
 boxUnoA.addEventListener("click", () => {
   if (turn === "pc") {
@@ -93,9 +93,14 @@ boxCuatroA.addEventListener("click", () => {
     turn = "pc";
     if (turn === "pc") {
       const simonPlays = simonArr.map((el) => {
-        return el.slice(0, 6).concat("b");
+        const simonMoved = el.slice(0, 6).concat("b");
+        // console.log(simonMoved);
+
+        const simonPlaysFiltered = arrOfBoxesB.filter((elem) => {
+          return elem.id == simonMoved;
+        });
+        console.log(simonPlaysFiltered);
       });
-      console.log(simonPlays);
       generateTurn(); // ser una copia del arr
     }
 
