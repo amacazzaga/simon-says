@@ -12,7 +12,7 @@ const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
 userArr = [];
 simonArr = [];
-simonMoves = []; // not using
+simonMoves = [];
 //BOX 1//
 boxUnoA.addEventListener("click", () => {
   if (turn === "pc") {
@@ -25,13 +25,13 @@ boxUnoA.addEventListener("click", () => {
   function myDisplay() {
     boxUnoA.style.display = "block";
     boxUnoB.style.display = "none";
-    userArr.push(boxUnoA.id);
-    turn = "pc";
-    // console.log(userArr);
-    // console.log(turn);
-    if (turn === "pc") {
-      generateTurn();
-    }
+    if (simonMoves[0] === boxUnoA.id) {
+      simonMoves = simonMoves.slice(1);
+      if (simonMoves.length == 0) {
+        turn = "pc";
+        generateTurn();
+      }
+    } else alert("no era el correcto");
   }
 });
 // BOX 2//
@@ -46,13 +46,13 @@ boxDosA.addEventListener("click", () => {
   function myDisplay() {
     boxDosA.style.display = "block";
     boxDosB.style.display = "none";
-    userArr.push(boxDosA.id);
-    turn = "pc";
-    if (turn === "pc") {
-      generateTurn();
-    }
-    // console.log(userArr);
-    //  console.log(turn);
+    if (simonMoves[0] === boxDosA.id) {
+      simonMoves = simonMoves.slice(1);
+      if (simonMoves.length == 0) {
+        turn = "pc";
+        generateTurn();
+      }
+    } else alert("no era el correcto");
   }
 });
 //BOX 3//
@@ -67,13 +67,13 @@ boxTresA.addEventListener("click", () => {
   function myDisplay() {
     boxTresA.style.display = "block";
     boxTresB.style.display = "none";
-    userArr.push(boxTresA.id);
-    turn = "pc";
-    // console.log(userArr);
-    // console.log(turn);
-    if (turn === "pc") {
-      generateTurn();
-    }
+    if (simonMoves[0] === boxTresA.id) {
+      simonMoves = simonMoves.slice(1);
+      if (simonMoves.length == 0) {
+        turn = "pc";
+        generateTurn();
+      }
+    } else alert("no era el correcto");
   }
 });
 
@@ -89,28 +89,22 @@ boxCuatroA.addEventListener("click", () => {
   function myDisplay() {
     boxCuatroA.style.display = "block";
     boxCuatroB.style.display = "none";
-    userArr.push(boxCuatroA.id);
-    turn = "pc";
-    if (turn === "pc") {
-      const simonPlays = simonArr.map((el) => {
-        const simonMoved = el.slice(0, 6).concat("b");
-        // console.log(simonMoved);
-
-        const simonPlaysFiltered = arrOfBoxesB.filter((elem) => {
-          return elem.id == simonMoved;
-        });
-        console.log(simonPlaysFiltered);
-      });
-      generateTurn(); // ser una copia del arr
-    }
-
-    /* necesitas saber si la primera posicion de userArr coincide con la primera de
-    simonArr, No guardar un historial de userArr. Si coincide, borras y seguis comparando
-    con el siguiente click*/
-    // console.log(turn);
-    // generateTurn(2); //por ej, pero eso va ahi, esta bien
+    if (simonMoves[0] === boxCuatroA.id) {
+      simonMoves = simonMoves.slice(1);
+      if (simonMoves.length == 0) {
+        turn = "pc";
+        generateTurn();
+      }
+    } else alert("no era el correcto");
   }
 });
+
+/* necesitas saber si la primera posicion de userArr coincide con la primera de
+    simonArr, No guardar un historial de userArr. Si coincide, borras y seguis comparando
+    con el siguiente click*/
+// console.log(turn);
+// generateTurn(2); //por ej, pero eso va ahi, esta bien
+
 // turnos, y comparar //
 // contador de la secuenaci actual//
 // generatTurn, toma turn lengght q es el largo de la secuen//
@@ -138,6 +132,7 @@ function generateTurn() {
     slicedConcat[0].style.display = "block";
   }
   simonArr.push(slicedConcat[0].id);
+  simonMoves = [...simonArr];
   console.log(simonArr);
 
   turn = "user";
