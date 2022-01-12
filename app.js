@@ -76,8 +76,7 @@ boxTresA.addEventListener("click", () => {
     } else alert("no era el correcto");
   }
 });
-
-//BOX 4// //turnos///maquina o user// otra let q indique el largo de la secuen del user
+//BOX 4//
 boxCuatroA.addEventListener("click", () => {
   if (turn === "pc") {
     //respeta el turno!
