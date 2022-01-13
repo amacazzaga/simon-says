@@ -13,90 +13,33 @@ const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
 userArr = [];
 simonArr = [];
 simonMoves = [];
-//BOX 1//
-boxUnoA.addEventListener("click", () => {
-  if (turn === "pc") {
-    //respeta el turno!
-    return;
-  }
-  boxUnoA.style.display = "none";
-  boxUnoB.style.display = "block";
-  const myTimeout = setTimeout(myDisplay, 1270);
-  function myDisplay() {
-    boxUnoA.style.display = "block";
-    boxUnoB.style.display = "none";
-    if (simonMoves[0] === boxUnoA.id) {
-      simonMoves = simonMoves.slice(1);
-      if (simonMoves.length == 0) {
-        turn = "pc";
-        generateTurn();
-      }
-    } else alert("no era el correcto");
-  }
-});
-// BOX 2//
-boxDosA.addEventListener("click", () => {
-  if (turn === "pc") {
-    //respeta el turno!
-    return;
-  }
-  boxDosA.style.display = "none";
-  boxDosB.style.display = "block";
-  const myTimeout = setTimeout(myDisplay, 1270);
-  function myDisplay() {
-    boxDosA.style.display = "block";
-    boxDosB.style.display = "none";
-    if (simonMoves[0] === boxDosA.id) {
-      simonMoves = simonMoves.slice(1);
-      if (simonMoves.length == 0) {
-        turn = "pc";
-        generateTurn();
-      }
-    } else alert("no era el correcto");
-  }
-});
-//BOX 3//
-boxTresA.addEventListener("click", () => {
-  if (turn === "pc") {
-    //respeta el turno!
-    return;
-  }
-  boxTresA.style.display = "none";
-  boxTresB.style.display = "block";
-  const myTimeout = setTimeout(myDisplay, 1270);
-  function myDisplay() {
-    boxTresA.style.display = "block";
-    boxTresB.style.display = "none";
-    if (simonMoves[0] === boxTresA.id) {
-      simonMoves = simonMoves.slice(1);
-      if (simonMoves.length == 0) {
-        turn = "pc";
-        generateTurn();
-      }
-    } else alert("no era el correcto");
-  }
-});
-//BOX 4//
-boxCuatroA.addEventListener("click", () => {
-  if (turn === "pc") {
-    //respeta el turno!
-    return;
-  }
-  boxCuatroA.style.display = "none";
-  boxCuatroB.style.display = "block";
-  const myTimeout = setTimeout(myDisplay, 1270);
-  function myDisplay() {
-    boxCuatroA.style.display = "block";
-    boxCuatroB.style.display = "none";
-    if (simonMoves[0] === boxCuatroA.id) {
-      simonMoves = simonMoves.slice(1);
-      if (simonMoves.length == 0) {
-        turn = "pc";
-        generateTurn();
-      }
-    } else alert("no era el correcto");
-  }
-});
+
+function button(a, b) {
+  a.addEventListener("click", () => {
+    if (turn === "pc") {
+      //respeta el turno!
+      return;
+    }
+    a.style.display = "none";
+    b.style.display = "block";
+    const myTimeout = setTimeout(myDisplay, 1270);
+    function myDisplay() {
+      a.style.display = "block";
+      b.style.display = "none";
+      if (simonMoves[0] === a.id) {
+        simonMoves = simonMoves.slice(1);
+        if (simonMoves.length == 0) {
+          turn = "pc";
+          generateTurn();
+        }
+      } else alert("no era el correcto");
+    }
+  });
+}
+button(boxUnoA, boxUnoB);
+button(boxDosA, boxDosB);
+button(boxTresA, boxTresB);
+button(boxCuatroA, boxCuatroB);
 
 /* necesitas saber si la primera posicion de userArr coincide con la primera de
     simonArr, No guardar un historial de userArr. Si coincide, borras y seguis comparando
