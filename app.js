@@ -30,9 +30,12 @@ function button(a, b) {
         simonMoves = simonMoves.slice(1);
         if (simonMoves.length == 0) {
           turn = "pc";
-          simonArr.forEach((element) => {
-            console.log(element);
+          const toShow = simonArr.map((element) => {
+            if (element == a.id) {
+              return a;
+            }
           });
+          console.log(toShow);
 
           generateTurn();
         }
