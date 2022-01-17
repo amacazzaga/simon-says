@@ -22,7 +22,7 @@ function button(a, b) {
     }
     a.style.display = "none";
     b.style.display = "block";
-    const myTimeout = setTimeout(myDisplay, 1270);
+    const myTimeout = setTimeout(myDisplay, 1290);
     function myDisplay() {
       a.style.display = "block";
       b.style.display = "none";
@@ -30,6 +30,7 @@ function button(a, b) {
         simonMoves = simonMoves.slice(1);
         if (simonMoves.length == 0) {
           turn = "pc";
+          console.log(simonArr); // aca se muestra la secuen de la pc
           generateTurn();
         }
       } else alert("no era el correcto");
@@ -41,18 +42,6 @@ button(boxDosA, boxDosB);
 button(boxTresA, boxTresB);
 button(boxCuatroA, boxCuatroB);
 
-/* necesitas saber si la primera posicion de userArr coincide con la primera de
-    simonArr, No guardar un historial de userArr. Si coincide, borras y seguis comparando
-    con el siguiente click*/
-// console.log(turn);
-// generateTurn(2); //por ej, pero eso va ahi, esta bien
-
-// turnos, y comparar //
-// contador de la secuenaci actual//
-// generatTurn, toma turn lengght q es el largo de la secuen//
-// el user va consuminedo el array de simon y quita del array lo q consume, pero no lo
-//modifica a simonArr, solo compara la primera posicion de ambos
-//y al final llama a generateTurn, una secuencia mas larga//
 //START//
 
 startButton.addEventListener("click", () => generateTurn());
@@ -68,14 +57,14 @@ function generateTurn() {
     return x.id === concat;
   });
   slicedConcat[0].style.display = "none"; // oculto clase a seleccionada
-  const myTimeout = setTimeout(myDisplay, 1270);
+  const myTimeout = setTimeout(myDisplay, 1290);
   function myDisplay() {
     turnSimon.style.display = "none";
     slicedConcat[0].style.display = "block";
   }
   simonArr.push(slicedConcat[0].id);
   simonMoves = [...simonArr];
-  console.log(simonArr);
+  //console.log(simonArr);
 
   turn = "user";
   // console.log(turn);
