@@ -50,7 +50,9 @@ function generateTurn() {
   const toShow = simonArr.map((element) => {
     const slicedToShow = element.slice(0, 6);
     const concatedToShow = slicedToShow.concat("b");
-    return document.getElementById(concatedToShow);
+    const elemA = document.getElementById(element);
+    const elemB = document.getElementById(concatedToShow);
+    return [elemA, elemB];
   });
   console.log(toShow);
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
