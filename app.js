@@ -50,11 +50,15 @@ function generateTurn() {
   const toShow = simonArr.map((element) => {
     const slicedToShow = element.slice(0, 6);
     const concatedToShow = slicedToShow.concat("b");
-    const elemA = document.getElementById(element);
-    const elemB = document.getElementById(concatedToShow);
+    const elemA = document.getElementById(element); // bring again from DOM
+    const elemB = document.getElementById(concatedToShow); //bring again from DOM
     return [elemA, elemB];
   });
-  console.log(toShow);
+  toShow.forEach((elem) => {
+    console.log(elem[0]);
+    console.log(elem[1]);
+  });
+
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
   //console.log(turnSimon);
@@ -75,5 +79,4 @@ function generateTurn() {
   //console.log(simonArr);
 
   turn = "user";
-  // console.log(turn);
 }
