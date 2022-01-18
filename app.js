@@ -30,12 +30,6 @@ function button(a, b) {
         simonMoves = simonMoves.slice(1);
         if (simonMoves.length == 0) {
           turn = "pc";
-          const toShow = simonArr.map((element) => {
-            if (element == a.id) {
-              return a;
-            }
-          });
-          console.log(toShow);
 
           generateTurn();
         }
@@ -53,6 +47,10 @@ button(boxCuatroA, boxCuatroB);
 startButton.addEventListener("click", () => generateTurn());
 
 function generateTurn() {
+  const toShow = simonArr.map((element) => {
+    return document.getElementById(element);
+  });
+  console.log(toShow);
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
   //console.log(turnSimon);
