@@ -48,7 +48,9 @@ startButton.addEventListener("click", () => generateTurn());
 
 function generateTurn() {
   const toShow = simonArr.map((element) => {
-    return document.getElementById(element);
+    const slicedToShow = element.slice(0, 6);
+    const concatedToShow = slicedToShow.concat("b");
+    return document.getElementById(concatedToShow);
   });
   console.log(toShow);
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
