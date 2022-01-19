@@ -47,6 +47,7 @@ button(boxCuatroA, boxCuatroB);
 startButton.addEventListener("click", () => generateTurn());
 
 function generateTurn() {
+  // THIS REPEAT THE PC MOVE//
   const toShow = simonArr.map((element) => {
     const slicedToShow = element.slice(0, 6);
     const concatedToShow = slicedToShow.concat("b");
@@ -55,10 +56,11 @@ function generateTurn() {
     return [elemA, elemB];
   });
   toShow.forEach((elem) => {
-    console.log(elem[0]);
-    console.log(elem[1]);
+    elem[0].style.display = "none";
+    elem[1].style.display = "block";
   });
-
+  //UP TO HERE//
+  //THIS CREATES THE LAST MOVE//
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
   //console.log(turnSimon);
