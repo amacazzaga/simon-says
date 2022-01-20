@@ -56,19 +56,19 @@ function generateTurn() {
     return [elemA, elemB];
   });
   toShow.forEach((elem, idx) => {
-    setTimeout(turnOn, 1290);
-    setTimeout(turnOff, 1290);
+    setTimeout(turnOn, 1270);
+    setTimeout(turnOff, 1270);
 
     function turnOn() {
       elem[0].style.display = "none";
       elem[1].style.display = "block";
     }
     function turnOff() {
-      elem[1].style.display = "none";
       elem[0].style.display = "block";
+      elem[1].style.display = "none";
     }
-    console.log(elem[0]);
-    console.log(elem[1]);
+    console.log(elem[0], idx);
+    console.log(elem[1], idx);
   });
   //UP TO HERE//
   //THIS CREATES THE LAST MOVE//
