@@ -55,15 +55,18 @@ function generateTurn() {
     const elemB = document.getElementById(concatedToShow); //bring again from DOM
     return [elemA, elemB];
   });
-  toShow.forEach((elem) => {
-    setTimeout(myDisplay, 1290);
-    function myDisplay() {
+  toShow.forEach((elem, idx) => {
+    setTimeout(turnOn, 1290);
+    setTimeout(turnOff, 1290);
+
+    function turnOn() {
       elem[0].style.display = "none";
       elem[1].style.display = "block";
-      elem[0].style.display = "block";
-      elem[1].style.display = "none";
     }
-
+    function turnOff() {
+      elem[1].style.display = "none";
+      elem[0].style.display = "block";
+    }
     console.log(elem[0]);
     console.log(elem[1]);
   });
