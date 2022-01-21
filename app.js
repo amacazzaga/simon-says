@@ -31,7 +31,7 @@ function button(a, b) {
         if (simonMoves.length == 0) {
           turn = "pc";
 
-          generateTurn();
+          setTimeout(generateTurn(), 2200);
         }
       } else alert("no era el correcto");
     }
@@ -48,6 +48,20 @@ startButton.addEventListener("click", () => generateTurn());
 
 function generateTurn() {
   // THIS REPEAT THE PC MOVE//
+
+  //UP TO HERE//
+  //THIS CREATES THE LAST MOVE//
+  const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
+  const turnSimon = arrOfBoxesB[randomNum];
+  //console.log(turnSimon);
+
+  const sliced = turnSimon.id.slice(0, 6);
+  const concat = sliced.concat("a");
+  const slicedConcat = arrOfBoxesA.filter((x) => {
+    return x.id === concat;
+  });
+
+  simonArr.push(slicedConcat[0].id);
   const toShow = simonArr.map((element) => {
     const slicedToShow = element.slice(0, 6);
     const concatedToShow = slicedToShow.concat("b");
@@ -56,38 +70,23 @@ function generateTurn() {
     return [elemA, elemB];
   });
   toShow.forEach((elem, idx) => {
-    setTimeout(turnOn, 1270);
-    setTimeout(turnOff, 1270);
+    setTimeout(turnOn, 2400 * idx + 1000);
+    setTimeout(turnOff, 2400 * idx + 2400);
 
     function turnOn() {
       elem[0].style.display = "none";
       elem[1].style.display = "block";
+      console.log("turnOn", idx, new Date());
     }
     function turnOff() {
       elem[0].style.display = "block";
       elem[1].style.display = "none";
+      console.log("turnOff", idx, new Date());
     }
+
     console.log(elem[0], idx);
     console.log(elem[1], idx);
   });
-  //UP TO HERE//
-  //THIS CREATES THE LAST MOVE//
-  const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
-  const turnSimon = arrOfBoxesB[randomNum];
-  //console.log(turnSimon);
-  turnSimon.style.display = "block"; // muestro clase b
-  const sliced = turnSimon.id.slice(0, 6);
-  const concat = sliced.concat("a");
-  const slicedConcat = arrOfBoxesA.filter((x) => {
-    return x.id === concat;
-  });
-  slicedConcat[0].style.display = "none"; // oculto clase a seleccionada
-  const myTimeout = setTimeout(myDisplay, 1290);
-  function myDisplay() {
-    turnSimon.style.display = "none";
-    slicedConcat[0].style.display = "block";
-  }
-  simonArr.push(slicedConcat[0].id);
   simonMoves = [...simonArr]; //simonMoves es copia del simonArr
   //console.log(simonArr);
 
