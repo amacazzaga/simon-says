@@ -10,9 +10,9 @@ const startButton = document.getElementById("button_start");
 let turn = "pc";
 const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
-userArr = [];
-simonArr = [];
-simonMoves = []; // es copia de simonArr ([...simonArr])
+let userArr = [];
+let simonArr = [];
+let simonMoves = []; // es copia de simonArr ([...simonArr])
 //USER CLICK//
 function button(a, b) {
   a.addEventListener("click", () => {
