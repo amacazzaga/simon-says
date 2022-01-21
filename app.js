@@ -13,7 +13,7 @@ const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
 userArr = [];
 simonArr = [];
 simonMoves = []; // es copia de simonArr ([...simonArr])
-
+//USER CLICK//
 function button(a, b) {
   a.addEventListener("click", () => {
     if (turn === "pc") {
@@ -30,7 +30,6 @@ function button(a, b) {
         simonMoves = simonMoves.slice(1);
         if (simonMoves.length == 0) {
           turn = "pc";
-
           setTimeout(generateTurn(), 2200);
         }
       } else alert("no era el correcto");
@@ -41,26 +40,17 @@ button(boxUnoA, boxUnoB);
 button(boxDosA, boxDosB);
 button(boxTresA, boxTresB);
 button(boxCuatroA, boxCuatroB);
-
 //START//
-
 startButton.addEventListener("click", () => generateTurn());
-
 function generateTurn() {
-  // THIS REPEAT THE PC MOVE//
-
-  //UP TO HERE//
-  //THIS CREATES THE LAST MOVE//
+  //THIS CREATES THE LAST RANDOM CHOICE FROM PC//
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
-  //console.log(turnSimon);
-
   const sliced = turnSimon.id.slice(0, 6);
   const concat = sliced.concat("a");
   const slicedConcat = arrOfBoxesA.filter((x) => {
     return x.id === concat;
   });
-
   simonArr.push(slicedConcat[0].id);
   const toShow = simonArr.map((element) => {
     const slicedToShow = element.slice(0, 6);
@@ -72,23 +62,15 @@ function generateTurn() {
   toShow.forEach((elem, idx) => {
     setTimeout(turnOn, 2400 * idx + 1000);
     setTimeout(turnOff, 2400 * idx + 2400);
-
     function turnOn() {
       elem[0].style.display = "none";
       elem[1].style.display = "block";
-      console.log("turnOn", idx, new Date());
     }
     function turnOff() {
       elem[0].style.display = "block";
       elem[1].style.display = "none";
-      console.log("turnOff", idx, new Date());
     }
-
-    console.log(elem[0], idx);
-    console.log(elem[1], idx);
   });
   simonMoves = [...simonArr]; //simonMoves es copia del simonArr
-  //console.log(simonArr);
-
   turn = "user";
 }
