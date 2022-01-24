@@ -10,7 +10,6 @@ const startButton = document.getElementById("button_start");
 let turn = "pc";
 const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
-let userArr = [];
 let simonArr = [];
 let simonMoves = []; // es copia de simonArr ([...simonArr])
 //USER CLICK//
@@ -42,6 +41,7 @@ button(boxTresA, boxTresB);
 button(boxCuatroA, boxCuatroB);
 //START//
 startButton.addEventListener("click", () => generateTurn());
+
 function generateTurn() {
   //THIS CREATES THE LAST RANDOM CHOICE FROM PC//
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
