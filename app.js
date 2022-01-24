@@ -40,10 +40,12 @@ button(boxDosA, boxDosB);
 button(boxTresA, boxTresB);
 button(boxCuatroA, boxCuatroB);
 //START//
-startButton.addEventListener("click", () => generateTurn());
-
+startButton.addEventListener("click", () => reset());
+function reset() {
+  simonArr = [];
+  setTimeout(generateTurn(), 2000);
+}
 function generateTurn() {
-  //THIS CREATES THE LAST RANDOM CHOICE FROM PC//
   const randomNum = Math.floor(Math.random() * arrOfBoxesB.length);
   const turnSimon = arrOfBoxesB[randomNum];
   const sliced = turnSimon.id.slice(0, 6);
@@ -73,4 +75,5 @@ function generateTurn() {
   });
   simonMoves = [...simonArr]; //simonMoves es copia del simonArr
   turn = "user";
+  console.log(simonArr.length);
 }
