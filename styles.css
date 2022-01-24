@@ -6,7 +6,7 @@ header {
 .container {
   justify-content: center;
   display: flex;
-  padding: 80px;
+  padding: 15px;
 }
 .div_button {
   display: flex;
@@ -19,6 +19,11 @@ button {
   width: 95px;
   border-radius: 12px;
 }
+.score {
+  display: flex;
+  justify-content: center;
+}
+
 .box_one_a {
   display: block;
   border: solid;
