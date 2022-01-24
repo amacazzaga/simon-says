@@ -7,6 +7,7 @@ const boxTresB = document.getElementById("box-3-b");
 const boxCuatroA = document.getElementById("box-4-a");
 const boxCuatroB = document.getElementById("box-4-b");
 const startButton = document.getElementById("button_start");
+const score = document.getElementById("h1");
 let turn = "pc";
 const arrOfBoxesA = [boxUnoA, boxDosA, boxTresA, boxCuatroA];
 const arrOfBoxesB = [boxUnoB, boxDosB, boxTresB, boxCuatroB];
@@ -31,7 +32,11 @@ function button(a, b) {
           turn = "pc";
           setTimeout(generateTurn(), 2200);
         }
-      } else alert("no era el correcto");
+      } else {
+        alert("no era el correcto");
+        reset();
+      }
+      score.innerText = simonArr.length - 1;
     }
   });
 }
@@ -75,5 +80,4 @@ function generateTurn() {
   });
   simonMoves = [...simonArr]; //simonMoves es copia del simonArr
   turn = "user";
-  console.log(simonArr.length);
 }
