@@ -1,7 +1,7 @@
 header {
   background-color: blueviolet;
   margin-bottom: 20px;
-  padding: 50px;
+  padding: 20px;
 }
 .container {
   justify-content: center;
@@ -95,5 +95,5 @@ button {
 
 footer {
   background-color: rgb(226, 43, 43);
-  padding: 50px;
+  padding: 20px;
 }

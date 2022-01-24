@@ -48,6 +48,7 @@ button(boxCuatroA, boxCuatroB);
 startButton.addEventListener("click", () => reset());
 function reset() {
   simonArr = [];
+  score.innerText = simonArr.length;
   setTimeout(generateTurn(), 2000);
 }
 function generateTurn() {
